@@ -1,0 +1,299 @@
+/* ===========================
+   Global Reset
+=========================== */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* removed global scrollbar */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===========================
+   Containers
+=========================== */
+.login-container,
+.signup-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #fff;
+  font-family: "Poppins", "Inter", sans-serif;
+  color: #111;
+  padding: 0;
+  margin: 0;
+  overflow: hidden; /* ensure no scrollbar */
+}
+
+/* === LOGIN PAGE === */
+.login-container {
+  align-items: center; /* vertically center the card */
+  padding-top: 0;
+}
+
+/* === SIGNUP PAGE === */
+.signup-container {
+  overflow: hidden !important; /* remove page scrollbar */
+  position: fixed; /* keep full screen */
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  align-items: flex-start; /* move card slightly up */
+  padding-top: 90px; /* vertical position */
+  background-color: #fff;
+}
+
+/* ===========================
+   Auth Box
+=========================== */
+.auth-box {
+  width: 400px;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 22px 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  background-color: #fff;
+  box-sizing: border-box;
+  max-height: 90vh;
+  overflow-y: auto; /* allow internal scroll if content is long */
+  scrollbar-width: none; /* Firefox hide scrollbar */
+}
+
+.auth-box::-webkit-scrollbar {
+  display: none; /* Chrome/Safari hide scrollbar */
+}
+
+/* ===========================
+   Titles
+=========================== */
+.auth-box h2 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin-bottom: 4px;
+  color: #000;
+}
+
+.auth-box p {
+  color: #555;
+  margin-bottom: 14px;
+}
+
+/* ===========================
+   Form Elements
+=========================== */
+.auth-box form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Labels */
+.auth-box label {
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 2px;
+}
+
+/* Inputs & Selects */
+.auth-box input,
+.auth-box select {
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  font-size: 0.9rem;
+  width: 100%;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.auth-box input:focus,
+.auth-box select:focus {
+  border-color: #000;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.08);
+}
+
+/* ===========================
+   Password Field
+=========================== */
+.password-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-wrapper input {
+  width: 100%;
+  padding-right: 35px;
+}
+
+.password-icon {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+  color: #000;
+  width: 20px;
+  height: 20px;
+}
+
+.password-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* ===========================
+   Remember + Forgot Section
+=========================== */
+.auth-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  margin-top: 8px;
+}
+
+.remember {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: #444;
+}
+
+.remember input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.forgot-link {
+  color: #000;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.forgot-link:hover {
+  text-decoration: underline;
+}
+
+/* ===========================
+   Buttons
+=========================== */
+.btn {
+  background-color: #000;
+  color: #fff;
+  padding: 10px 0;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+  margin-top: 10px;
+}
+
+.full-width-btn {
+  width: 100%;
+}
+
+.btn:hover {
+  background-color: #333;
+}
+
+/* ===========================
+   Select Role & Bottom Links
+=========================== */
+.auth-box select {
+  margin-bottom: 10px;
+}
+
+.auth-box p:last-child {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* ===========================
+   Success / Error Message
+=========================== */
+.auth-message {
+  margin-top: 8px;
+  color: #0a7a07 !important;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: left;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===========================
+   Links
+=========================== */
+.auth-box a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 600;
+}
+
+.auth-box a:hover {
+  text-decoration: underline;
+}
+
+/* ===========================
+   Responsive Adjustments
+=========================== */
+@media (max-height: 700px) {
+  .auth-box {
+    transform: scale(0.9);
+    padding: 18px 24px;
+    max-height: calc(100vh - 80px);
+  }
+
+  .signup-container .auth-box {
+    overflow-y: auto;
+  }
+}
+
+@media (max-width: 450px) {
+  .auth-box {
+    width: 90%;
+    padding: 16px;
+  }
+}
+
+/* ===========================
+   Custom Toast Styles
+=========================== */
+.custom-toast {
+  background: #f2f2f2 !important;
+  color: #000 !important;
+  font-weight: 600;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15) !important;
+  border-left: 4px solid #000 !important;
+}
+
+.custom-toast svg {
+  fill: #000 !important;
+}
+
+.custom-toast-progress {
+  background: #000 !important;
+}

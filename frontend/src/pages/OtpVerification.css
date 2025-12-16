@@ -1,0 +1,164 @@
+/* OTP Verification Page Styling — compact spacing version */
+
+/* Container */
+.otp-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  background-color: #fff;
+  font-family: "Poppins", "Inter", sans-serif;
+  color: #111;
+  overflow: hidden;
+}
+
+/* Card box */
+.otp-card {
+  width: 400px;
+  padding: 35px 45px; /* slightly reduced padding */
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+  background-color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  text-align: left;
+}
+
+/* Title */
+.otp-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #000;
+  margin-bottom: 3px; /* ↓ tighter gap below title */
+}
+
+/* Subtitle (Campus Event Hub) */
+.otp-subtitle {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #555;
+  margin-bottom: 14px; /* ↓ reduced gap below subtitle */
+}
+
+/* Instruction */
+.otp-instruction {
+  font-size: 0.95rem;
+  color: #333;
+  margin-bottom: 12px; /* ↓ smaller gap before input */
+}
+
+/* Form */
+.otp-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* ↓ reduced gap between form elements */
+}
+
+/* Input wrapper */
+.otp-input-wrapper {
+  position: relative;
+  margin-bottom: 6px; /* ↓ smaller space below input */
+}
+
+/* Input */
+.otp-input {
+  width: 100%;
+  padding: 11px 44px 11px 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.otp-input:focus {
+  border-color: #000;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.08);
+}
+
+/* Eye icon */
+.otp-eye {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: #000;
+  font-size: 18px;
+  padding: 6px;
+}
+
+/* Verify button */
+.otp-verify-btn {
+  width: 100%;
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, background-color 0.3s;
+  margin-top: 6px; /* ↓ reduced gap above button */
+}
+
+.otp-verify-btn:hover {
+  background: #333;
+  transform: scale(1.05);
+}
+
+/* Pop animation */
+.pop {
+  animation: popEffect 0.25s ease;
+}
+
+@keyframes popEffect {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+/* Message */
+.otp-message {
+  margin-top: 8px; /* ↓ reduced */
+  color: #0a7a07;
+  font-size: 14px;
+  text-align: left;
+}
+
+/* Resend section */
+.otp-resend-row {
+  margin-top: 12px; /* ↓ slightly smaller gap */
+  display: flex;
+  justify-content: center;
+}
+
+.otp-resend-btn {
+  background: none;
+  border: none;
+  color: #000;
+  font-size: 0.95rem;
+  cursor: pointer;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.otp-resend-btn:hover {
+  color: #333;
+}
+
+.otp-resend-btn:disabled {
+  color: #555;
+  cursor: not-allowed;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .otp-card {
+    width: 90%;
+    padding: 28px 20px;
+  }
+}

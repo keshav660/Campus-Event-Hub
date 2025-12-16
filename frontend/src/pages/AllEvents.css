@@ -1,0 +1,455 @@
+/* =============================== 🎟️ ALL EVENTS (MATCHED DASHBOARD STYLE) =============================== */
+.all-events-page {
+  flex: 1;
+  background: #f7f8fb;
+  padding: 25px 36px;
+  overflow-y: visible;
+  font-family: "Poppins", sans-serif;
+}
+
+/* ---------- Filters ---------- */
+.filter-bar {
+  margin-bottom: 18px;
+}
+.student-search {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 10px;
+  padding: 12px 18px;
+  box-shadow: 0 6px 18px rgba(11, 20, 50, 0.03);
+  width: 100%;
+  margin-bottom: 12px;
+}
+.student-search .search-icon {
+  margin-right: 10px;
+  color: #6b7280;
+  font-size: 1.2rem;
+}
+.student-search input {
+  border: none;
+  outline: none;
+  flex: 1;
+  background: transparent;
+  font-size: 1rem;
+  color: #0f172a;
+}
+
+.filters.filters-grid {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+.filters select,
+.filters input[type="date"] {
+  flex: 1;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #e6e9ef;
+  background: #fff;
+  font-size: 0.95rem;
+  box-shadow: 0 3px 8px rgba(11, 20, 50, 0.03);
+  height: 44px;
+}
+.filter-clear {
+  padding: 10px 18px;
+  background: #000;
+  color: #fff;
+  border-radius: 8px;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+  height: 44px;
+}
+.filter-clear:hover {
+  background: #222;
+  transform: translateY(-1px);
+}
+
+/* ---------- Events Grid ---------- */
+.events-grid.three-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-top: 12px;
+}
+
+/* Card base */
+.event-card {
+  background: #fff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(11, 20, 50, 0.06);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  min-height: 320px; /* stable card height */
+}
+.event-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 22px rgba(11, 20, 50, 0.12);
+}
+
+/* image wrapper enforces stable aspect ratio and prevents layout jump */
+.event-img-wrapper {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: linear-gradient(90deg, #eef2ff, #f8fafc);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.event-img-wrapper img.event-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* info area: avoid 'space-between' so button remains close when content is short */
+.event-info {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+  box-sizing: border-box;
+}
+
+/* title/desc */
+.event-info h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+}
+.event-short-desc {
+  margin: 0;
+  color: #374151;
+  font-size: 0.95rem;
+  line-height: 1.3;
+  max-height: 3.6em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* details row */
+.event-details {
+  display: flex;
+  gap: 12px;
+  color: #6b7280;
+  font-size: 0.9rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.college-info {
+  margin-top: 0;
+  color: #374151;
+  font-size: 0.9rem;
+}
+
+/* buttons - placed close to content rather than pinned to bottom */
+.event-info .register-btn,
+.event-info .status-btn {
+  margin-top: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  height: 40px;
+  box-sizing: border-box;
+}
+
+/* primary register */
+.event-info .register-btn {
+  background: #0b1226;
+  color: #fff;
+}
+
+/* base status */
+.event-info .status-btn {
+  background: #f3f4f6;
+  color: #111827;
+  border: 1px solid rgba(9, 12, 20, 0.04);
+}
+
+/* solid colors for states */
+.event-info .status-btn.pending-btn {
+  background: #ffd700 !important;
+  color: #111 !important;
+  border: 1px solid #e6c200 !important;
+  box-shadow: none !important;
+}
+.event-info .status-btn.approved-btn {
+  background: #28a745 !important;
+  color: #fff !important;
+  border: 1px solid #28a745 !important;
+  box-shadow: none;
+}
+.event-info .status-btn.rejected-btn {
+  background: #dc3545 !important;
+  color: #fff !important;
+  border: 1px solid #dc3545 !important;
+  box-shadow: none;
+}
+
+/* Floating Back Button */
+.floating-back-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #000;
+  color: #fff;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+.floating-back-btn:hover {
+  background: #222;
+  transform: translateY(-2px);
+}
+
+/* ---------- Modal styling (details modal matches Student dashboard style) ---------- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(22, 24, 28, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 9999;
+  overflow-y: auto;
+}
+
+/* narrower centered modal for details pop-up look */
+.modal-content {
+  width: min(640px, 98%);
+  background: #fff;
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 20px 60px rgba(3, 7, 18, 0.25);
+  max-height: 90vh;
+  overflow: auto;
+  position: relative;
+}
+
+/* header */
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.modal-header h2 {
+  margin: 0;
+  font-size: 20px;
+  letter-spacing: 0.6px;
+  font-weight: 700;
+}
+.modal-close {
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* body - table styling to match the thin separators in screenshot */
+.modal-body {
+  padding-top: 6px;
+  color: #111827;
+  font-size: 15px;
+}
+.modal-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 8px 0;
+}
+.modal-body table td {
+  padding: 12px 8px;
+  vertical-align: middle;
+  color: #111827;
+}
+.modal-body table tbody tr {
+  border-bottom: 1px solid #eee;
+}
+.modal-body table tbody tr td:first-child {
+  font-weight: 600;
+  color: #111827;
+}
+
+/* center the bottom button container (only for the details modal layout where the button sits directly under the table) */
+.modal-body > div {
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Large black rounded Close button for details modal (scoped to modal-body > div so it won't change registration modal's small cancel button inside modal-actions) */
+.modal-body > div .cancel-btn {
+  width: 220px;
+  background: #0b1226;
+  color: #fff;
+  border-radius: 12px;
+  padding: 12px 18px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(11, 20, 50, 0.08);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+.modal-body > div .cancel-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(11, 20, 50, 0.12);
+}
+
+/* form groups (registration modal) */
+.modal-body .form-group {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.modal-body label {
+  font-size: 13px;
+  color: #111827;
+  font-weight: 600;
+}
+.modal-body input[type="text"],
+.modal-body input[type="email"],
+.modal-body select,
+.modal-body textarea {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  font-size: 14px;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(11, 20, 50, 0.02);
+}
+.modal-body textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* modal actions (registration modal buttons) */
+.modal-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 6px;
+}
+.submit-btn {
+  background: #0b1226;
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 700;
+}
+.cancel-btn {
+  background: #fff;
+  color: #111;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  cursor: pointer;
+}
+
+/* discussion inside modal */
+.discussion-container {
+  margin-top: 12px;
+}
+.discussion-title {
+  margin: 0 0 8px 0;
+  font-size: 16px;
+}
+.discussion-input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  background: #fafafa;
+  min-height: 80px;
+  box-sizing: border-box;
+}
+.post-comment-btn {
+  background: #0b1226;
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+}
+.cancel-comment-btn {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  padding: 8px 14px;
+  border-radius: 8px;
+}
+
+/* comments list */
+.comment-item {
+  padding: 10px 8px;
+  border-bottom: 1px solid #f3f4f6;
+}
+.comment-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+.comment-date {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+/* small screens */
+@media (max-width: 1100px) {
+  .events-grid.three-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .modal-content {
+    width: min(720px, 98%); /* slightly more room on medium screens */
+  }
+}
+@media (max-width: 768px) {
+  .events-grid.three-grid {
+    grid-template-columns: 1fr;
+  }
+  .filters.filters-grid {
+    flex-direction: column;
+  }
+  .event-info .register-btn,
+  .event-info .status-btn {
+    height: 44px;
+  }
+  .modal-content {
+    width: calc(100% - 40px);
+    padding: 14px;
+  }
+  .modal-body > div .cancel-btn {
+    width: 100%;
+    max-width: 420px;
+  }
+}
+
+/* ensure stable layout by forcing box-sizing globally for these components */
+.events-grid,
+.event-card,
+.event-info,
+.modal-content {
+  box-sizing: border-box;
+}

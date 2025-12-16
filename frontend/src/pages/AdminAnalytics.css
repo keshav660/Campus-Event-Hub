@@ -1,0 +1,351 @@
+/* src/pages/AdminAnalytics.css - frontend-only analytics styling */
+
+/* ========== Configurable offset for Top Events card ========== */
+:root {
+  --top-events-offset: 34px; /* positive = moves DOWN, negative = moves UP */
+}
+
+/* ---------- Page root ---------- */
+.admin-analytics-page {
+  padding: 22px 28px;
+  color: #0b1226;
+  min-height: 80vh;
+  background: #f7f8fb;
+  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial;
+}
+
+/* header */
+.analytics-header {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+.analytics-header h1 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+}
+.muted {
+  color: #6b7280;
+  font-size: 13px;
+}
+
+.notice {
+  background: #fff3cd;
+  border: 1px solid #ffeeba;
+  padding: 8px 10px;
+  border-radius: 8px;
+  color: #7a5200;
+  margin-top: 8px;
+}
+
+/* KPI row */
+.kpi-row {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 22px;
+  flex-wrap: wrap;
+}
+.kpi-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: 0 8px 20px rgba(11, 20, 50, 0.04);
+  min-width: 180px;
+  flex: 1 1 220px;
+}
+.kpi-title {
+  font-size: 13px;
+  color: #6b7280;
+  margin-bottom: 8px;
+}
+.kpi-value {
+  font-size: 20px;
+  font-weight: 700;
+  color: #0b1226;
+  margin-bottom: 6px;
+}
+.kpi-note {
+  font-size: 12px;
+  color: #9aa3b2;
+}
+
+/* charts row */
+.charts-row {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 20px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.chart-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 12px 14px;
+  box-shadow: 0 8px 20px rgba(11, 20, 50, 0.04);
+  flex: 1 1 320px;
+  min-width: 280px;
+}
+.chart-card.large {
+  flex: 2 1 640px;
+  min-width: 420px;
+}
+.table-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 12px 14px;
+  box-shadow: 0 8px 20px rgba(11, 20, 50, 0.04);
+  flex: 1 1 360px;
+  min-width: 300px;
+}
+
+/* card head */
+.card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.card-head h3 {
+  margin: 0;
+  font-size: 16px;
+}
+.card-head .muted {
+  font-size: 12px;
+}
+
+/* table */
+.table-wrap {
+  /* keep table-wrap as the scroll container for per-card tables.
+     Use stable gutter to prevent layout shifts when scrollbar appears. */
+  overflow-y: auto;
+  overflow-x: auto;
+  scrollbar-gutter: stable;
+}
+.analytics-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 8px;
+}
+.analytics-table th,
+.analytics-table td {
+  text-align: left;
+  padding: 10px 8px;
+  border-bottom: 1px solid #f3f4f6;
+  font-size: 14px;
+  color: #0b1226;
+}
+
+/* Make column headings fixed while scrolling (sticky) */
+.analytics-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 6;
+  background: #ffffff; /* solid background to avoid transparency artifacts */
+  font-size: 13px;
+  color: #6b7280;
+  font-weight: 600;
+  padding: 10px 8px;
+}
+
+/* pie / bar styling fallback for Recharts content */
+.recharts-wrapper {
+  font-family: inherit;
+}
+
+/* footer */
+.analytics-footer {
+  margin-top: 24px;
+  font-size: 13px;
+  color: #9aa3b2;
+}
+
+/* responsive tweaks */
+@media (max-width: 1000px) {
+  .charts-row {
+    flex-direction: column;
+  }
+  .chart-card.large {
+    min-width: auto;
+  }
+}
+
+/* ---------- Per-card scroll areas + thin visible scrollbars ---------- */
+
+/* Recent Feedback card wrapper + card-head layout to match Top Events spacing */
+.recent-feedback-card {
+  margin-bottom: 22px;
+  position: relative;
+}
+
+/* Make the Recent Feedback heading behave like Top Events:
+   left: title + subtitle, right: refresh button (spaced apart) */
+.recent-feedback-card .card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+/* Heights chosen so scrollbar appears when content exceeds visible area.
+   Adjust max-height values to show more/less rows before scrolling. */
+
+/* Recent Feedback: slightly taller area */
+.recent-feedback-body {
+  max-height: 160px; /* visible area; scrollbar appears if content exceeds */
+  overflow-y: auto;
+  overflow-x: hidden;
+  /* removed padding-right to prevent layout shift; scrollbar-gutter on .table-wrap handles reserved space */
+}
+
+/* Top Events: medium area */
+.top-events-body {
+  max-height: 180px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  /* removed padding-right to prevent layout shift */
+}
+
+/* Top Students: shorter area */
+.top-students-body {
+  max-height: 140px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  /* removed padding-right to prevent layout shift */
+}
+
+/* defensive: make sure table spacing behaves inside scroll area */
+.recent-feedback-body .analytics-table,
+.top-events-body .analytics-table,
+.top-students-body .analytics-table {
+  margin: 0;
+}
+
+/* Keep cards separated (vertical gap between successive .table-card) */
+.table-card + .table-card {
+  margin-top: 18px;
+}
+
+/* Keep header buttons neutral — do not shift globally */
+.card-head > button {
+  min-width: 80px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  background: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+/* ========== Specific Top Events card adjustments (only this card moves) ========== */
+
+/* Primary approach: visually move only the Top Events card down (safe, doesn't alter layout flow). */
+.top-events-card {
+  transform: translateY(var(--top-events-offset));
+  -webkit-transform: translateY(var(--top-events-offset));
+  will-change: transform;
+}
+
+/* Higher specificity fallback if other rules override it */
+.charts-row > .table-card.top-events-card,
+.charts-row .table-card.top-events-card {
+  transform: translateY(var(--top-events-offset)) !important;
+  -webkit-transform: translateY(var(--top-events-offset)) !important;
+}
+
+/* Optional: if you want the card to actually take up space lower in the flow, add "force-layout-move" in JSX */
+.top-events-card.force-layout-move {
+  transform: none !important;
+  margin-top: calc(var(--top-events-offset)) !important;
+}
+
+/* Responsive: undo offset on very narrow screens so stacking looks natural */
+@media (max-width: 1000px) {
+  .top-events-card,
+  .charts-row > .table-card.top-events-card {
+    transform: none !important;
+    margin-top: 0 !important;
+  }
+}
+
+/* Absolute positioning fallback (use only if necessary) */
+.charts-row.positioned-ancestor {
+  position: relative;
+}
+.top-events-card.absolute-fallback {
+  position: absolute !important;
+  right: 16px;
+  top: calc(220px + var(--top-events-offset)) !important;
+  width: 360px;
+  z-index: 5;
+}
+
+/* Extra nudge helper */
+.top-events-card.nudge-left {
+  transform: translateY(var(--top-events-offset)) translateX(-6px);
+}
+
+/* Top Events refresh button style */
+.top-events-refresh {
+  display: inline-block;
+  margin-top: 10px;
+  margin-left: 12px;
+  padding: 8px 14px;
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+/* ===== Thin visible scrollbar for WebKit browsers (Chrome, Edge, Safari) ===== */
+/* Apply thin, light scrollbars to .table-wrap (affects the card scroll areas) */
+.table-wrap::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.table-wrap::-webkit-scrollbar-thumb {
+  background-color: rgba(120,120,120,0.45);
+  border-radius: 10px;
+}
+
+.table-wrap::-webkit-scrollbar-track {
+  background: rgba(0,0,0,0.03);
+}
+
+/* ===== Firefox fallback for thin visible scrollbar ===== */
+.table-wrap {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(120,120,120,0.45) rgba(0,0,0,0.03);
+}
+
+/* Keep existing per-body rules (defensive) but thin scrollbars now handled via .table-wrap above */
+.recent-feedback-body::-webkit-scrollbar,
+.top-events-body::-webkit-scrollbar,
+.top-students-body::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.recent-feedback-body::-webkit-scrollbar-thumb,
+.top-events-body::-webkit-scrollbar-thumb,
+.top-students-body::-webkit-scrollbar-thumb {
+  background-color: rgba(120,120,120,0.45);
+  border-radius: 10px;
+}
+
+.recent-feedback-body::-webkit-scrollbar-track,
+.top-events-body::-webkit-scrollbar-track,
+.top-students-body::-webkit-scrollbar-track {
+  background: rgba(0,0,0,0.03);
+}
+
+.recent-feedback-body,
+.top-events-body,
+.top-students-body {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(120,120,120,0.45) rgba(0,0,0,0.03);
+}

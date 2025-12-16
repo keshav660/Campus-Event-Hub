@@ -1,0 +1,156 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Full Page */
+.event-details-page {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow-y: auto;
+}
+
+/* ✨ Dark transparent overlay over background poster */
+.event-details-page::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.45); /* Darkens poster slightly */
+  z-index: 0;
+}
+
+/* Main content overlay (for centering) */
+.event-overlay {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* Card container */
+.event-card {
+  width: 85%;
+  max-width: 850px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 18px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+  padding: 45px 55px;
+  color: #000;
+  animation: fadeIn 0.6s ease-in-out;
+  backdrop-filter: blur(6px);
+}
+
+/* Event title */
+.event-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 800;
+  color: #000;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+  margin-bottom: 15px;
+}
+
+/* Event description */
+.event-desc {
+  text-align: center;
+  font-size: 1.05rem;
+  color: #333;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+/* Details section */
+.details-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 10px;
+}
+
+.details-grid p {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.05rem;
+  color: #111;
+  line-height: 1.5;
+}
+
+.details-grid strong {
+  margin-left: 4px;
+}
+
+/* Buttons */
+.btn-container {
+  margin-top: 35px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Register button (Black) */
+.btn {
+  border: none;
+  border-radius: 10px;
+  padding: 12px 28px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.register-btn {
+  background: #000;
+  color: #fff;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+}
+
+.register-btn:hover {
+  background: #333;
+  transform: scale(1.03);
+}
+
+/* Back button — minimal clean look */
+.back-btn {
+  background: transparent;
+  color: #000;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+  border: none;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+}
+
+.back-btn:hover {
+  color: #555;
+  transform: translateX(-2px);
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

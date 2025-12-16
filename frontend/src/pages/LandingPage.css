@@ -1,0 +1,277 @@
+/* ---------- HERO SECTION ---------- */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 100px 80px;
+  background-color: #fff;
+}
+
+.hero-content {
+  max-width: 520px;
+}
+
+.hero-content h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #000;
+  line-height: 1.3;
+}
+
+.hero-content p {
+  color: #555;
+  margin: 12px 0 25px;
+  font-size: 0.95rem;
+}
+
+/* GET STARTED BUTTON SAME AS NAVBAR LOGIN BUTTON */
+.btn {
+  background-color: #000;
+  color: #fff;
+  padding: 8px 18px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  width: max-content;
+  min-width: 100px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.btn:hover {
+  background-color: #333;
+  transform: scale(1.05);
+}
+
+.hero-image {
+  width: 500px;
+  height: 280px;
+  border-radius: 10px;
+  background-image: url('https://plus.unsplash.com/premium_photo-1661509825240-53f8d598ff16?ixlib=rb-4.1.0&fm=jpg&q=60&w=3000');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* ---------- UPCOMING EVENTS ---------- */
+.events {
+  padding: 80px 60px;
+  text-align: center;
+  background-color: #fff;
+}
+
+.events h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+.event-cards {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+.card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 25px 20px;
+  width: 280px;
+  min-height: 240px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+.card:hover {
+  transform: scale(1.04);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 0.9rem;
+  color: #555;
+  margin: 4px 0;
+  line-height: 1.5;
+}
+
+.card button {
+  align-self: center;
+  margin-top: 15px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.card button:hover {
+  background-color: #333;
+  transform: scale(1.05);
+}
+
+/* ---------- WHY CHOOSE US ---------- */
+.why-choose {
+  padding: 80px 60px;
+  text-align: center;
+  background-color: #f9f9f9;
+}
+
+.why-choose h2 {
+  font-size: 1.8rem;
+  margin-bottom: 40px;
+  font-weight: 700;
+}
+
+.features {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 60px;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.feature {
+  width: 320px;
+  padding: 15px;
+  text-align: center;
+  background-color: transparent;
+  transition: all 0.3s ease;
+}
+
+.feature:hover {
+  transform: scale(1.05);
+}
+
+.feature .icon {
+  width: 35px;
+  height: 35px;
+  color: #000;
+  margin-bottom: 15px;
+}
+
+.feature h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.feature p {
+  color: #555;
+  font-size: 0.92rem;
+  line-height: 1.4;
+  max-width: 300px;
+  margin: 0 auto;
+  text-align: center;
+  white-space: pre-line;
+}
+
+/* ---------- FOOTER INFO BOXES ---------- */
+.footer-info {
+  background-color: #e6e6e6;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 60px 80px;
+  gap: 40px;
+  text-align: left;
+}
+
+.footer-box {
+  flex: 1 1 300px;
+  background-color: #f8f8f8;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.footer-box h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #000;
+}
+
+.footer-box p {
+  color: #444;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.footer-box ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-box ul li {
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  color: #333;
+  transition: all 0.2s ease;
+}
+
+.footer-box ul li:hover {
+  text-decoration: underline;
+  color: #000;
+}
+
+/* ---------- COPYRIGHT FOOTER ---------- */
+footer {
+  background-color: #e6e6e6;
+  text-align: center;
+  padding: 18px 0;
+  color: #444;
+  font-size: 0.85rem;
+  letter-spacing: 0.3px;
+  border-top: none;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 60px 20px;
+  }
+
+  .hero-image {
+    width: 100%;
+    height: 250px;
+    margin-top: 20px;
+  }
+
+  .features {
+    gap: 30px;
+  }
+
+  .footer-info {
+    flex-direction: column;
+    padding: 40px 30px;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 350px;
+  }
+}

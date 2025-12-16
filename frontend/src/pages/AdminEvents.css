@@ -1,0 +1,315 @@
+/* ===============================
+   📅 ADMIN EVENTS PAGE
+   =============================== */
+.admin-events-page {
+  padding: 25px 36px;
+  font-family: "Poppins", sans-serif;
+  height: 100%;
+  overflow: visible; /* ⛔ Removed inner scroll — let AdminLayout handle it */
+  background-color: transparent;
+}
+
+/* ---------- Filters ---------- */
+.filters-container {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+}
+
+.filters-container select {
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  min-width: 160px;
+  text-align: center;
+  background: #fff;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.filters-container select:hover {
+  border-color: #888;
+}
+
+/* ---------- Events Grid ---------- */
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  justify-items: center;
+  padding-bottom: 40px;
+}
+
+@media (max-width: 1024px) {
+  .events-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .events-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Event Card ---------- */
+.event-card {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(11, 20, 50, 0.06);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+  min-height: 380px;
+  width: 100%;
+  max-width: 350px;
+  position: relative;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.12);
+}
+
+.event-poster {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+
+.event-card h3 {
+  font-size: 1.35rem;
+  margin: 8px 0 10px;
+  text-align: center;
+  color: #222;
+}
+
+/* ---------- Top Row: Date/Time ---------- */
+.top-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+  padding: 0 8px;
+  color: #444;
+}
+
+/* ---------- Middle Row: Category/Status ---------- */
+.middle-row {
+  display: flex;
+  justify-content: space-between;
+  margin: 8px 0;
+  padding: 0 8px;
+}
+
+.category-badge {
+  padding: 7px 14px;
+  border-radius: 999px;
+  font-weight: 500;
+  font-size: 0.88rem;
+}
+
+.cat-cultural { background: #ffe6f0; color: #d63384; }
+.cat-tech { background: #cceeff; color: #007bff; }
+.cat-arts { background: #fff3e0; color: #ff5722; }
+.cat-sports { background: #e6e0ff; color: #6f42c1; }
+.cat-workshop { background: #e0ffe0; color: #28a745; }
+.cat-default { background: #f0f0f0; color: #555; }
+
+.status {
+  padding: 7px 14px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.88rem;
+  text-align: center;
+}
+
+.status-active { background: #d4edda; color: #28a745; }
+.status-pending { background: #fd7e14; color: #fff; }
+.status-upcoming { background: #e0f0ff; color: #007bff; }
+.status-completed { background: #dc3545; color: #fff; }
+
+/* ---------- Participants ---------- */
+.participants {
+  font-size: 0.95rem;
+  margin: 10px 0;
+  text-align: center;
+  color: #333;
+}
+
+/* ---------- Action Buttons ---------- */
+.action-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: auto;
+  padding: 0 8px 10px;
+}
+
+.action-buttons button {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 48%;
+  background: #f3f4f6;
+}
+
+.action-buttons button:hover {
+  transform: translateY(-2px);
+}
+
+.action-buttons .edit-btn:hover {
+  background: #e6eef8;
+}
+
+.action-buttons .delete-btn:hover {
+  background: #ffecec;
+}
+
+/* ---------- Floating Back Button ---------- */
+.floating-back-btn {
+  position: fixed;
+  bottom: 22px;
+  right: 22px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #000;
+  color: #fff;
+  font-size: 1.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  transition: all 0.25s ease;
+  z-index: 1000;
+}
+
+.floating-back-btn:hover {
+  transform: scale(1.1) translateY(-2px);
+  background: #111;
+}
+
+/* ---------- No Events Message ---------- */
+.no-events {
+  text-align: center;
+  color: #555;
+  font-size: 1.05rem;
+  margin-top: 40px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .filters-container {
+    gap: 15px;
+  }
+
+  .floating-back-btn {
+    bottom: 18px;
+    right: 18px;
+  }
+}
+
+/* ============================================================
+   🌟 DELETE CONFIRMATION MODAL (CUSTOM — NO MORE "localhost says")
+   ============================================================ */
+
+.confirm-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1500;
+}
+
+.confirm-box {
+  background: #ffffff;
+  width: 90%;
+  max-width: 420px;
+  padding: 22px;
+  border-radius: 14px;
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.25);
+  animation: scaleIn 0.25s ease;
+  font-family: "Poppins", sans-serif;
+}
+
+.confirm-box h3 {
+  margin: 0 0 8px 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #111;
+}
+
+.confirm-box p {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 18px;
+  line-height: 1.4;
+}
+
+/* Buttons Section */
+.confirm-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.btn {
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  border: none;
+  font-size: 0.95rem;
+  transition: 0.18s ease;
+}
+
+.btn-danger {
+  background: #000 !important;
+  color: #fff !important;
+}
+
+.btn-danger:hover {
+  background: #222 !important;
+}
+
+.btn-secondary {
+  background: #000 !important;
+  color: #fff !important;
+}
+
+.btn-secondary:hover {
+  background: #222 !important;
+}
+
+/* Animation */
+@keyframes scaleIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+/* Center the actions */
+.confirm-actions {
+  display: flex;
+  justify-content: center;   /* CENTER BUTTONS */
+  gap: 14px;
+  margin-top: 15px;
+}
+
+

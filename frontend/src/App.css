@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #fff;
+  color: #000;
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* ===========================
+   Custom Toast Styles
+=========================== */
+.custom-toast {
+  background: #f2f2f2 !important;  /* Whitish-grey background */
+  color: #000 !important;          /* Black text */
+  font-weight: 600;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15) !important;
+  border-left: 4px solid #000 !important; /* Black side accent line */
+  text-align: center;              /* Clean center alignment */
+}
+
+.custom-toast svg {
+  fill: #000 !important; /* Black tick/check icon */
+}
+
+.custom-toast-progress {
+  background: #000 !important; /* Black progress bar */
+}
